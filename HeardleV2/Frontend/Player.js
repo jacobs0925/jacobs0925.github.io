@@ -176,7 +176,9 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
     for (let i= 0; i<attempts.length; i++)
     {
         let currentAttempt = attempts[j];
-        cookieMap.get('attempts').push(currentAttempt)
+        var tempArr = cookieMap.get('attempts');
+        tempArr.push(currentAttempt);
+        cookieMap.set('attempts',tempArr);
     }
     console.log('attempts: ' + cookieMap.get('attempts'))
     removeCookie('HeardleV2');
