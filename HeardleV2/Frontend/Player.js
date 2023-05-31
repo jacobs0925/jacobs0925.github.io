@@ -29,10 +29,10 @@ init();
 
 function setCookie(cookieName, cookieMap)
 {
-    let keys = [];
-    for (let key of cookieMap)
-      keys.push(key);
-    console.log('keys: '+ keys);
+    const keys = cookieMap.keys();
+    for (const key of keys) {
+    console.log('key: ' + key);
+    }
 
     var cookieValue = JSON.stringify(cookieMap);
     console.log('cookieValue for set cookie is: ' + cookieValue)
