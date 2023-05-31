@@ -63,12 +63,10 @@ function removeCookie(cookieName)
 
 
 }
-function init()
-{
-    document.addEventListener('DOMContentLoaded', function() {
-        autocomplete(document.getElementById("guessBox"), countries);
-     }, false);
 
+function postLoad()
+{
+    autocomplete(document.getElementById("guessBox"), countries);
 
     if (getCookie('HeardleV2') == null)
     {
@@ -83,6 +81,12 @@ function init()
         console.log('Cookie map: ' + JSON.stringify(heardleCookieMap));
         setAttempts(heardleCookieMap.get('attempts'));
     }
+}
+function init()
+{
+    document.addEventListener('DOMContentLoaded', function() {
+        postLoad()
+     }, false);
 }
 
 function playSong() {
@@ -124,8 +128,13 @@ function getAttempts()
 
     for (let i = 0; i < guessDivs.length; i++) {
         const guessDiv = guessDivs[i];
-        attempt_list.push(guessDiv.textContent)
+        console.log('guess ' + i+ ': ' + guessDiv.textContent)
+        if (guessDiv.textContent != ',')
+        {
+            attempt_list.push(guessDiv.textContent)
+        }
       }
+    console.log('getAttempts: ' + attempt_list)
     return attempt_list;
 }
 
