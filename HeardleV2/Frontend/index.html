@@ -30,28 +30,35 @@
     </div>
 
     <div class="box" id="body">
-
+        <div class="guess" id="guess0"></div>
+        <div class="guess" id="guess1"></div>
+        <div class="guess" id="guess2"></div>
+        <div class="guess" id="guess3"></div>
+        <div class="guess" id="guess4"></div>
+        <div class="guess" id="guess5"></div>
+        <div class="guess" id="guess6"></div>
     </div>
 
     <div class="box" id="guessing">
         <div id="attempts">
-            <div class="part" style="flex-basis: 3.3%;"></div>
-            <div class="part" style="flex-basis: 3.3%;"></div>
-            <div class="part" style="flex-basis: 10%;"></div>
-            <div class="part" style="flex-basis: 16.7%;"></div>
-            <div class="part" style="flex-basis: 16.7%;"></div>
-            <div class="part" style="flex-basis: 50%;"></div>
+            <div id = "attempt0" class="part" style="flex-basis: 3.3%;"></div>
+            <div id = "attempt1" class="part" style="flex-basis: 3.3%;"></div>
+            <div id = "attempt2" class="part" style="flex-basis: 10%;"></div>
+            <div id = "attempt3" class="part" style="flex-basis: 16.7%;"></div>
+            <div id = "attempt4" class="part" style="flex-basis: 16.7%;"></div>
+            <div id = "attempt5" class="part" style="flex-basis: 50%;"></div>
         </div>
 
         <div id="guess-field">
-            <input type="text" placeholder="Enter your guess">
-            <button type="submit">Submit</button>
+            <script src="Player.js"></script>
+            <input id = "guessBox" type="text" placeholder="Enter your guess">
+            <button id = "submitButton" onclick = "attemptGuess()" type="submit">Submit</button>
         </div>
 
         <div id="play-button-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
             <script src="Player.js"></script>
             <audio id="audioPlayer" src="TempFile.mp3"></audio>
-            <button onclick="playSongDuration()" style="background: none; border: none; padding: 0; width: 50px; height: 50px;">
+            <button onclick="playSong()" style="background: none; border: none; padding: 0; width: 50px; height: 50px;">
               <img src="images/play.png" alt="" style="width: 100%; height: 100%; filter: invert(1);">
             </button>
           </div>
