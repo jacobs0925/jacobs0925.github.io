@@ -19,7 +19,7 @@ Add leaderboard
 Add daily scripting for new song
 */
 
-init();
+init();//WORKS
 
 function setCookie(cookieName, cookieMap)   
 {
@@ -53,8 +53,6 @@ function getCookie(cookieName)
 function removeCookie(cookieName) 
 {
     document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-
-
 }
 
 function postLoad()
