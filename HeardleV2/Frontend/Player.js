@@ -10,7 +10,7 @@ var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
 var greyStr = 'rgb(99, 94, 94)'
 
-var completed = null
+var completed = 0
 //
 
 /*
@@ -157,14 +157,16 @@ function winner()
 
 function skip()
 {
-    if (!completed)
+    if (completed == 1)
     {
-        var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
-        attemptGuess(inputStr, 1)
-        // Change attempt box to green
-        var attemptBox = document.getElementById("attempt" + timeIndex);
-        attemptBox.style.backgroundColor = greenStr;
+        return
     }
+
+    var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
+    attemptGuess(inputStr, 1)
+    // Change attempt box to green
+    var attemptBox = document.getElementById("attempt" + timeIndex);
+    attemptBox.style.backgroundColor = greenStr;
 }
 
 function getAttempts()
@@ -200,7 +202,7 @@ function setAttempts(attempt_list)
 
 function attemptGuess(guessInput=document.getElementById("guessBox").value, isSkip=0)
 {
-    if (completed)
+    if (completed == 1)
     {
         return
     }
