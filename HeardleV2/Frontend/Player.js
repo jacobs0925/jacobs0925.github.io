@@ -78,7 +78,7 @@ function init()
     var heardleCookieMap = getCookie('HeardleV2')
     if (JSON.stringify(heardleCookieMap) != "{}")
     {
-        console.log('Cookie map: ' + heardleCookieMap);
+        console.log('Cookie map: ' + JSON.stringify(heardleCookieMap));
         setAttempts(heardleCookieMap.get('attempts'));
     }
 }
