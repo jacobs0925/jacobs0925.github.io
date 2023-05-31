@@ -9,6 +9,8 @@ var artist = "testerArtist"
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
 var greyStr = 'rgb(99, 94, 94)'
+
+var completed = null
 //
 
 /*
@@ -141,6 +143,7 @@ function loser()
 {
     console.log("loser :(")
     timeIndex = 4
+    completed = 1
     showOverlayLoser();
 }
 
@@ -148,12 +151,13 @@ function winner()
 {
     console.log("winner!")
     timeIndex = 4
+    completed = 1
     showOverlay();
 }
 
 function skip()
 {
-    if (timeIndex < 6)
+    if (!completed)
     {
         var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
         attemptGuess(inputStr, 1)
@@ -196,7 +200,7 @@ function setAttempts(attempt_list)
 
 function attemptGuess(guessInput=document.getElementById("guessBox").value, isSkip=0)
 {
-    if (timeIndex >= 6)
+    if (completed)
     {
         return
     }
