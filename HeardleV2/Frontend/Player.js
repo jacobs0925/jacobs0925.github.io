@@ -29,7 +29,9 @@ init();
 
 function setCookie(cookieName, cookieMap)
 {
+   
     var cookieValue = JSON.stringify(cookieMap);
+    console.log('cookieValue for set cookie is: ' + cookieValue)
     var today = new Date();
     var midnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 0, 0, 0); // Calculate midnight of the next day
     var expiration = midnight.toUTCString(); // Convert to UTC string format
