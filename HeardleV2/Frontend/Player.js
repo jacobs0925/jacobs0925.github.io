@@ -57,7 +57,6 @@ function winner()
 function skip()
 {
     var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
-    console.log(inputStr)
     attemptGuess(inputStr, 1)
 }
 
@@ -124,9 +123,7 @@ function autocomplete(inp, arr) {
           /*check if the item starts with the same letters as the text field value:*/
 
           //added code to also check at beginning of each word
-          indices = getWordIndices(arr[i])
-          console.log('testing ' + val + "indices: " + indices)
-          
+          indices = getWordIndices(arr[i]) 
           for (j = 0; j < indices.length; j++)
           {
 
@@ -138,8 +135,6 @@ function autocomplete(inp, arr) {
                 b.innerHTML += word.substr(0,indices[j]);
                 b.innerHTML += "<strong>" + word.slice(indices[j], indices[j] + val.length) + "</strong>";
                 b.innerHTML += word.substr(indices[j] + val.length);
-                console.log(indices[j] + "; "  + (indices[j] + val.length));
-                console.log(word.substr(indices[j], indices[j]))
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
