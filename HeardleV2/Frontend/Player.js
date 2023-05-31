@@ -124,6 +124,7 @@ function getAttempts()
 
     for (let i = 0; i < guessDivs.length; i++) {
         const guessDiv = guessDivs[i];
+        console.log('guess ' + i+ ': ' + guessDiv.textContent)
         if (guessDiv.textContent != ',')
         {
             attempt_list.push(guessDiv.textContent)
