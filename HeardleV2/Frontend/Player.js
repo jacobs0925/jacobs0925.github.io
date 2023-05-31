@@ -23,13 +23,8 @@ Add daily scripting for new song
 
 init();
 
-function setCookie(cookieName, cookieMap)
+function setCookie(cookieName, cookieMap)   
 {
-    for (let i = 0; i < cookieMap.get('attempts').length; i++)
-    {
-        console.log('attempt' + i + ': ' + cookieMap.get('attempts')[i]);
-    }
-
     var cookieValue = JSON.stringify(cookieMap);
     console.log('cookieValue for set cookie is: ' + cookieValue)
     var today = new Date();
