@@ -27,6 +27,26 @@ Add daily scripting for new song
 
 init();
 
+function replacer(key, value) {
+    if(value instanceof Map) {
+      return {
+        dataType: 'Map',
+        value: Array.from(value.entries()), // or with spread: value: [...value]
+      };
+    } else {
+      return value;
+    }
+  }
+
+  function reviver(key, value) {
+    if(typeof value === 'object' && value !== null) {
+      if (value.dataType === 'Map') {
+        return new Map(value.value);
+      }
+    }
+    return value;
+  }
+
 function setCookie(cookieName, cookieMap)
 {
     for (let i = 0; i < cookieMap.get('attempts').length; i++)
@@ -34,7 +54,7 @@ function setCookie(cookieName, cookieMap)
         console.log('attempt' + i + ': ' + cookieMap.get('attempts')[i]);
     }
 
-    var cookieValue = JSON.stringify(cookieMap);
+    var cookieValue = JSON.stringify(cookieMap, replacer);
     console.log('cookieValue for set cookie is: ' + cookieValue)
     var today = new Date();
     var midnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 0, 0, 0); // Calculate midnight of the next day
@@ -55,7 +75,7 @@ function getCookie(cookieName)
     
     if (cookie.indexOf(name) === 0) {
         var jsonValue = decodeURIComponent(cookie.substring(name.length));
-        var value = JSON.parse(jsonValue); // Convert JSON string to map object
+        var value = JSON.parse(jsonValue, reviver); // Convert JSON string to map object
         return value;
     }  
     return null;
