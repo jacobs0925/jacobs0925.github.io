@@ -14,6 +14,7 @@ var heardleCookieMap = new Map()
 var startMap = new Map([
     ['attempts', []]
   ]);
+
 //
 
 /*
@@ -45,7 +46,7 @@ function getCookie(cookieName)
     var cookieArray = document.cookie.split(';');
   
     var cookie = cookieArray[0].trim();
-
+    
     if (cookie.indexOf(name) === 0) {
         var jsonValue = decodeURIComponent(cookie.substring(name.length));
         var value = JSON.parse(jsonValue); // Convert JSON string to map object
@@ -57,6 +58,7 @@ function getCookie(cookieName)
 function removeCookie(cookieName) 
 {
     document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+
 
 }
 function init()
@@ -76,7 +78,8 @@ function init()
     var heardleCookieMap = getCookie('HeardleV2')
     if (heardleCookieMap != null)
     {
-        setAttempts(heardleCookieMap.get('attempts'))
+        console.log('Cookie map: ' + heardleCookieMap);
+        setAttempts(heardleCookieMap.get('attempts'));
     }
 }
 
