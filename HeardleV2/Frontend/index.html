@@ -1,3 +1,15 @@
+<!-- <head>
+    <title>HeardleV2</title>
+</head>
+
+<body>
+    
+
+    
+    <button onclick="playSong()">Play</button>
+
+    <button onclick="playSongDuration(5)">Play</button>
+</body> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +36,7 @@
         <div class="guess" id="guess3"></div>
         <div class="guess" id="guess4"></div>
         <div class="guess" id="guess5"></div>
+        <div class="guess" id="guess6"></div>
     </div>
 
     <div class="box" id="guessing">
@@ -37,25 +50,13 @@
         </div>
 
         <div id="guess-field">
-            
-            <div class="autocomplete" style="width:200px;">
-                <input id="guessBox" type="text" class="guess-field-input" placeholder="Enter your guess">
-              </div>
-            <div id="bottom-section">
-                <div id="bottom-section-left"style="flex-basis: 15%;">
-                    <button id="skipButton" type="submit" onclick="skip()" class="skip-button">Skip</button>
-                </div>
-                <div style="flex-grow: 1;"></div>
-                <div id="bottom-section-right" style="flex-basis: 15%;">
-                    <button id="submitButton" onclick="attemptGuess()" class="guess-field-button">Submit</button>
-                </div>
-            </div>
-
-            
-          </div>
+            <script src="Player.js"></script>
+            <input id = "guessBox" type="text" placeholder="Enter your guess">
+            <button id = "submitButton" onclick = "attemptGuess()" type="submit">Submit</button>
+        </div>
 
         <div id="play-button-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-            <script type="text/javascript" src="Player.js"></script>
+            <script src="Player.js"></script>
             <audio id="audioPlayer" src="TempFile.mp3"></audio>
             <button onclick="playSong()" style="background: none; border: none; padding: 0; width: 50px; height: 50px;">
               <img src="images/play.png" alt="" style="width: 100%; height: 100%; filter: invert(1);">
@@ -65,13 +66,5 @@
           
     </div>
   </div>
-  <script type="text/javascript" src="Player.js">
-    function codeAddress() {
-        console.log("AAAAAAAAA")
-        autocomplete(document.getElementById("guessBox"), countries);
-        console.log("AAAAAAAAA")
-    }
-    window.onload = codeAddress;
-    </script>
 </body>
 </html>
