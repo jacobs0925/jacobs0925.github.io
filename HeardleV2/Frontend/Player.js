@@ -129,7 +129,7 @@ function getAttempts()
     for (let i = 0; i < guessDivs.length; i++) {
         const guessDiv = guessDivs[i];
         console.log('guess ' + i+ ': ' + guessDiv.textContent)
-        if (guessDiv.textContent != ',')
+        if (guessDiv.textContent.trim() != '')
         {
             attempt_list.push(guessDiv.textContent)
         }
@@ -185,6 +185,7 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
     for (let i= 0; i<attempts.length; i++)
     {
         let currentAttempt = attempts[j];
+        console.log('currentAttempt: ' + currentAttempt)
         var tempArr = cookieMap.get('attempts');
         tempArr.push(currentAttempt);
         cookieMap.set('attempts',tempArr);
