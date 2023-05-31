@@ -29,7 +29,11 @@ init();
 
 function setCookie(cookieName, cookieMap)
 {
-   
+    let keys = [];
+    for (let key of cookieMap)
+      keys.push(key);
+    console.log('keys: '+ keys);
+
     var cookieValue = JSON.stringify(cookieMap);
     console.log('cookieValue for set cookie is: ' + cookieValue)
     var today = new Date();
