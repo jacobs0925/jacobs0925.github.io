@@ -180,11 +180,10 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
     var cookieMap = new Map([
     ['attempts', []]
     ]);
-    let attempts = getAttempts();
-    console.log('getattemptsresult: ' + attempts)
+    let attempts = getAttempts();//works
     for (let i= 0; i<attempts.length; i++)
     {
-        let currentAttempt = attempts[j];
+        let currentAttempt = attempts[i];
         console.log('currentAttempt: ' + currentAttempt)
         var tempArr = cookieMap.get('attempts');
         tempArr.push(currentAttempt);
