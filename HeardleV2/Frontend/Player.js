@@ -3,7 +3,7 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "testing"
+var songName = "Lil Baby - Pure Cocaine"
 var artist = "testerArtist"
 
 var greenStr = 'rgb(6, 131, 6)'
@@ -19,7 +19,7 @@ Add leaderboard
 Add daily scripting for new song
 */
 
-init();
+init();//WORKS
 
 function setCookie(cookieName, cookieMap)   
 {
@@ -53,8 +53,6 @@ function getCookie(cookieName)
 function removeCookie(cookieName) 
 {
     document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-
-
 }
 
 function postLoad()
@@ -74,7 +72,52 @@ function postLoad()
         console.log('Cookie map: ' + JSON.stringify(attemptlist));
         setAttempts(attemptlist);
     }
+
+    // Get the overlay element
+    var overlay = document.getElementById('overlay');
+
+    // Get the okay button
+    var okayButton = document.querySelector('.okay-button');
+
+    // Add event listener to the okay button
+    okayButton.addEventListener('click', function() {
+    overlay.classList.add('hidden');
+    });
+
+    // Get the overlay element
+    var overlayloser = document.getElementById('overlayloser');
+
+    // Get the okay button
+    var okayButtonloser = document.querySelector('.okay-button-loser');
+
+    // Add event listener to the okay button
+    okayButtonloser.addEventListener('click', function() {
+    overlayloser.classList.add('hidden');
+    });
 }
+
+ // Function to show the overlay
+ function showOverlay() {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('visible');
+    }
+
+    // Function to hide the overlay
+    function hideOverlay() {
+    overlay.classList.remove('visible');
+    overlay.classList.add('hidden');
+    }
+
+    function showOverlayLoser() {
+        overlayloser.classList.remove('hidden');
+        overlayloser.classList.add('visible');
+        }
+    
+        // Function to hide the overlay
+        function hideOverlayLoser() {
+            overlayloser.classList.remove('visible');
+            overlayloser.classList.add('hidden');
+        }
 function init()
 {
     document.addEventListener('DOMContentLoaded', function() {
@@ -86,31 +129,38 @@ function playSong() {
     var audioPlayer = document.getElementById("audioPlayer");
     audioPlayer.currentTime = 0; // Start from the beginning of the song
     audioPlayer.play();
-
-    
-
+    console.log('timingingex: ' + timeIndex)
     // Pause the song after a specified duration (in milliseconds)
     var durationInMilliseconds = 1000 * timings[timeIndex]; // 30 seconds
     setTimeout(function() {
         audioPlayer.pause();
     }, durationInMilliseconds);
+}
 
-    // Change attempt box to green
-    var attemptBox = document.getElementById("attempt" + timeIndex);
-    attemptBox.style.backgroundColor = greenStr;
-
-    timeIndex += 1
+function loser()
+{
+    console.log("loser :(")
+    timeIndex = 4
+    showOverlayLoser();
 }
 
 function winner()
 {
     console.log("winner!")
+    timeIndex = 4
+    showOverlay();
 }
 
 function skip()
 {
-    var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
-    attemptGuess(inputStr, 1)
+    if (timeIndex < 6)
+    {
+        var inputStr =  "Skip (" + (timings.length - timeIndex) + ")";
+        attemptGuess(inputStr, 1)
+        // Change attempt box to green
+        var attemptBox = document.getElementById("attempt" + timeIndex);
+        attemptBox.style.backgroundColor = greenStr;
+    }
 }
 
 function getAttempts()
@@ -146,6 +196,11 @@ function setAttempts(attempt_list)
 
 function attemptGuess(guessInput=document.getElementById("guessBox").value, isSkip=0)
 {
+    if (timeIndex >= 6)
+    {
+        return
+    }
+
     var guessTextBox = document.getElementById("guess"+timeIndex);
     var attemptBox = document.getElementById("attempt" + timeIndex);
     
@@ -160,11 +215,15 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
         {
             guessTextBox.style.color = redStr;
         }
+        if (timeIndex == 5)
+        {
+            loser();
+        }
     }
     else
     {
         guessTextBox.style.color = greenStr;
-        winner()
+        winner();
     }
 
     timeIndex += 1

@@ -44,4 +44,4 @@ class Song:
         self.title = title
         self.error = exception
 
-Song('https://youtu.be/77ZF50ve6rs', 'test','test')
+Song('https://youtu.be/sFIXA0zALWU', 'test','test')
