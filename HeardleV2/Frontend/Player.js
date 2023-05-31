@@ -181,7 +181,7 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
     ['attempts', []]
     ]);
     let attempts = getAttempts();
-
+    console.log('getattemptsresult: ' + attempts)
     for (let i= 0; i<attempts.length; i++)
     {
         let currentAttempt = attempts[j];
