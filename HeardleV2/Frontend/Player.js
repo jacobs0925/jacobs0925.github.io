@@ -190,8 +190,9 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
         
     }
     cookieMap.set('attempts',tempArr);
-    console.log('attempts: ' + cookieMap.get('attempts'))
+    
     removeCookie('HeardleV2');
+    console.log('attempts: ' + cookieMap.get('attempts'))
     setCookie('HeardleV2', cookieMap);
 
     
