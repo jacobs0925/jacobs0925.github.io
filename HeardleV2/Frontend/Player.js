@@ -9,8 +9,6 @@ var artist = "testerArtist"
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
 var greyStr = 'rgb(99, 94, 94)'
-
-var heardleCookieMap = new Map()
 //
 
 /*
