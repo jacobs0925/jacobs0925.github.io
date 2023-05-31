@@ -29,9 +29,9 @@ init();
 
 function setCookie(cookieName, cookieMap)
 {
-    const keys = cookieMap.keys();
-    for (const key of keys) {
-    console.log('key: ' + key);
+    for (let i = 0; i < cookieMap.get('attempts').length; i++)
+    {
+        console.log('attempt' + i + ': ' + cookieMap.get('attempts')[i]);
     }
 
     var cookieValue = JSON.stringify(cookieMap);
