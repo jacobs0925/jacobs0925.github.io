@@ -89,7 +89,18 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
 
     
 }
-
+function getWordIndices(str) {
+    const words = str.split(' '); // Split the string into an array of words
+    const indices = [];
+  
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      const index = str.indexOf(word); // Get the index of the word in the original string
+      indices.push(index);
+    }
+  
+    return indices;
+  }
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -111,24 +122,37 @@ function autocomplete(inp, arr) {
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
           /*check if the item starts with the same letters as the text field value:*/
-          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-            /*create a DIV element for each matching element:*/
-            b = document.createElement("DIV");
-            /*make the matching letters bold:*/
-            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i].substr(val.length);
-            /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-            /*execute a function when someone clicks on the item value (DIV element):*/
-                b.addEventListener("click", function(e) {
-                /*insert the value for the autocomplete text field:*/
-                inp.value = this.getElementsByTagName("input")[0].value;
-                /*close the list of autocompleted values,
-                (or any other open lists of autocompleted values:*/
-                closeAllLists();
-            });
-            a.appendChild(b);
-          }
+
+          //added code to also check at beginning of each word
+          indices = getWordIndices(arr[i])
+          console.log('testing ' + val + "indices: " + indices)
+          
+          for (j = 0; j < indices.length; j++)
+          {
+
+            if (arr[i].substr(indices[j], val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                const word = arr[i]
+                b.innerHTML += word.substr(0,indices[j]);
+                b.innerHTML += "<strong>" + word.slice(indices[j], indices[j] + val.length) + "</strong>";
+                b.innerHTML += word.substr(indices[j] + val.length);
+                console.log(indices[j] + "; "  + (indices[j] + val.length));
+                console.log(word.substr(indices[j], indices[j]))
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                    b.addEventListener("click", function(e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
         }
     });
     /*execute a function presses a key on the keyboard:*/
