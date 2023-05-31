@@ -73,7 +73,7 @@ function init()
         setCookie('HeardleV2', startMap)
     }
 
-    heardleCookieMap = getCookie('HeardleV2')
+    var heardleCookieMap = getCookie('HeardleV2')
     if (heardleCookieMap != null)
     {
         setAttempts(heardleCookieMap.get('attempts'))
