@@ -11,10 +11,6 @@ var redStr = 'rgb(146, 12, 12)'
 var greyStr = 'rgb(99, 94, 94)'
 
 var heardleCookieMap = new Map()
-var startMap = new Map([
-    ['attempts', []]
-  ]);
-
 //
 
 /*
@@ -27,26 +23,6 @@ Add daily scripting for new song
 
 init();
 
-function replacer(key, value) {
-    if(value instanceof Map) {
-      return {
-        dataType: 'Map',
-        value: Array.from(value.entries()), // or with spread: value: [...value]
-      };
-    } else {
-      return value;
-    }
-  }
-
-  function reviver(key, value) {
-    if(typeof value === 'object' && value !== null) {
-      if (value.dataType === 'Map') {
-        return new Map(value.value);
-      }
-    }
-    return value;
-  }
-
 function setCookie(cookieName, cookieMap)
 {
     for (let i = 0; i < cookieMap.get('attempts').length; i++)
@@ -54,7 +30,7 @@ function setCookie(cookieName, cookieMap)
         console.log('attempt' + i + ': ' + cookieMap.get('attempts')[i]);
     }
 
-    var cookieValue = JSON.stringify(cookieMap, replacer);
+    var cookieValue = JSON.stringify(cookieMap);
     console.log('cookieValue for set cookie is: ' + cookieValue)
     var today = new Date();
     var midnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 0, 0, 0); // Calculate midnight of the next day
@@ -75,7 +51,7 @@ function getCookie(cookieName)
     
     if (cookie.indexOf(name) === 0) {
         var jsonValue = decodeURIComponent(cookie.substring(name.length));
-        var value = JSON.parse(jsonValue, reviver); // Convert JSON string to map object
+        var value = JSON.parse(jsonValue); // Convert JSON string to map object
         return value;
     }  
     return null;
@@ -96,14 +72,14 @@ function postLoad()
     {
         console.log('No cookie found, creating new cookie')
 
-        setCookie('HeardleV2', startMap)
+        setCookie('HeardleV2', [])
     }
 
-    var heardleCookieMap = getCookie('HeardleV2')
-    if (JSON.stringify(heardleCookieMap) != "{}")
+    var attemptlist = getCookie('HeardleV2')
+    if (JSON.stringify(attemptlist) != "[]")
     {
-        console.log('Cookie map: ' + JSON.stringify(heardleCookieMap));
-        setAttempts(heardleCookieMap.get('attempts'));
+        console.log('Cookie map: ' + JSON.stringify(attemptlist));
+        setAttempts(attemptlist);
     }
 }
 function init()
@@ -201,23 +177,11 @@ function attemptGuess(guessInput=document.getElementById("guessBox").value, isSk
     timeIndex += 1
     guessTextBox.textContent = guessInput
 
-    var cookieMap = new Map([
-    ['attempts', []]
-    ]);
     let attempts = getAttempts();//works
-    var tempArr = cookieMap.get('attempts');
-    for (let i= 0; i<attempts.length; i++)
-    {
-        let currentAttempt = attempts[i];
-        console.log('currentAttempt: ' + currentAttempt)
-        tempArr.push(currentAttempt);
-        
-    }
-    cookieMap.set('attempts',tempArr);
-    
+
     removeCookie('HeardleV2');
-    console.log('attempts: ' + cookieMap.get('attempts'))
-    setCookie('HeardleV2', cookieMap);
+    console.log('attempts: ' + attempts)
+    setCookie('HeardleV2', attempts);
 
     
 }
