@@ -43,5 +43,32 @@ class Song:
         self.artist = artist
         self.title = title
         self.error = exception
+        
+        
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
 
-Song('https://youtu.be/sFIXA0zALWU', 'test','test')
+# Set up your Spotify API credentials
+client_id = 'ef254e2bf7df4ee687c4c99ea5f8978b'
+client_secret = '1766af344baf4ed1b1f72d634c04a7e9'
+
+# Create an instance of the Spotify client
+auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+spotify = spotipy.Spotify(auth_manager=auth_manager)
+
+def getAlbumArtLinks(artist_name, song_name):
+    results = spotify.search(q=f"track:{song_name} artist:{artist_name}", type='track', limit=1)
+
+    # Check if any results were found
+    if results['tracks']['items']:
+        track = results['tracks']['items'][0]
+        album = track['album']
+        track_url = track['external_urls']['spotify']
+        album_art_url = album['images'][0]['url']  # Get the URL of the first album art image
+
+        return track_url, album_art_url
+    else:
+        print("Song not found.")
+
+print(getAlbumArtLinks('BTS', 'Boy With Luv (Feat. Halsey)'))
+Song('https://youtu.be/naRxHSCFoSg', 'test','test')

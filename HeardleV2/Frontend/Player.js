@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "Lil Baby - Pure Cocaine"
-var songlink = 'https://open.spotify.com/track/577YBGuskWkVDCxZrLRB4v'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b2737cb0c4f7761f6dd66aaca065'
+var songName = "BTS - Boy With Luv (Feat. Halsey)"
+var songlink = 'https://open.spotify.com/track/4a9tbd947vo9K8Vti9JwcI'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b27318d0ed4f969b376893f9a38f'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
