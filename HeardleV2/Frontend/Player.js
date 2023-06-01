@@ -58,19 +58,19 @@ function removeCookie(cookieName)
 function postLoad()
 {
     autocomplete(document.getElementById("guessBox"), countries);
-    // if (getCookie('HeardleV2') == null)
-    // {
-    //     console.log('No cookie found, creating new cookie')
+    if (getCookie('HeardleV2') == null)
+    {
+        console.log('No cookie found, creating new cookie')
 
-    //     setCookie('HeardleV2', [])
-    // }
+        setCookie('HeardleV2', [])
+    }
 
-    // var attemptlist = getCookie('HeardleV2')
-    // if (JSON.stringify(attemptlist) != "[]")
-    // {
-    //     console.log('Cookie map: ' + JSON.stringify(attemptlist));
-    //     setAttempts(attemptlist);
-    // }
+    var attemptlist = getCookie('HeardleV2')
+    if (JSON.stringify(attemptlist) != "[]")
+    {
+        console.log('Cookie map: ' + JSON.stringify(attemptlist));
+        setAttempts(attemptlist);
+    }
 
     var linkElement = document.getElementById('clickablesong');
     var imageElement = document.getElementById('clickablesongimg');
