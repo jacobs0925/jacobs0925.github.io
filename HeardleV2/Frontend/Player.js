@@ -4,7 +4,8 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
 var songName = "Lil Baby - Pure Cocaine"
-var artist = "testerArtist"
+var songlink = 'https://open.spotify.com/track/577YBGuskWkVDCxZrLRB4v'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b2737cb0c4f7761f6dd66aaca065'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
@@ -15,10 +16,7 @@ var completed = 0
 
 /*
 TODO
-clear guess field
-Add caching of guesses and limit for day
 Add leaderboard
-Add daily scripting for new song
 */
 
 init();//WORKS
@@ -60,21 +58,32 @@ function removeCookie(cookieName)
 function postLoad()
 {
     autocomplete(document.getElementById("guessBox"), countries);
+    // if (getCookie('HeardleV2') == null)
+    // {
+    //     console.log('No cookie found, creating new cookie')
 
-    if (getCookie('HeardleV2') == null)
-    {
-        console.log('No cookie found, creating new cookie')
+    //     setCookie('HeardleV2', [])
+    // }
 
-        setCookie('HeardleV2', [])
-    }
+    // var attemptlist = getCookie('HeardleV2')
+    // if (JSON.stringify(attemptlist) != "[]")
+    // {
+    //     console.log('Cookie map: ' + JSON.stringify(attemptlist));
+    //     setAttempts(attemptlist);
+    // }
 
-    var attemptlist = getCookie('HeardleV2')
-    if (JSON.stringify(attemptlist) != "[]")
-    {
-        console.log('Cookie map: ' + JSON.stringify(attemptlist));
-        setAttempts(attemptlist);
-    }
-
+    var linkElement = document.getElementById('clickablesong');
+    var imageElement = document.getElementById('clickablesongimg');
+    var linkElementl = document.getElementById('clickablesongl');
+    var imageElementl = document.getElementById('clickablesongimgl');
+    var message = document.getElementById('message');
+    var messagel = document.getElementById('messagel');
+    message.textContent = songName
+    messagel.textContent = songName
+    linkElementl.setAttribute('href', songlink);
+    imageElementl.setAttribute('src', albumlink);
+    linkElement.setAttribute('href', songlink);
+    imageElement.setAttribute('src', albumlink);
     // Get the overlay element
     var overlay = document.getElementById('overlay');
 
@@ -96,6 +105,9 @@ function postLoad()
     okayButtonloser.addEventListener('click', function() {
     overlayloser.classList.add('hidden');
     });
+
+    
+
 }
 
  // Function to show the overlay
