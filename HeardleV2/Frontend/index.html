@@ -11,7 +11,11 @@
         <div class="overlay-content">
           <div class="top-section">
             <h2>Congratulations!</h2>
-            <p>You've completed the Heardle!</p>
+            <p>You've completed the Heardle! Click on the album art below to listen on Spotify or Okay to close</p>
+            <a id="clickablesong" target="_blank">
+                <img id="clickablesongimg" alt="Listen on Spotify">
+              </a>
+              <p id="message"style="text-align: center;"></p>
           </div>
           <div class="bottom-section">
             <button onclick="hideOverlay()" class="okay-button">Okay</button>
@@ -23,7 +27,11 @@
         <div class="overlay-content-loser">
           <div class="top-section-loser">
             <h2>Too Bad, Better Luck Next Time!</h2>
-            <p>You've run out of guesses</p>
+            <p>You've run out of guesses, click on the album art below to listen on Spotify or Okay to close</p>
+            <a id="clickablesongl" target="_blank">
+                <img id="clickablesongimgl" alt="Listen on Spotify">
+              </a>
+              <p id="messagel"style="text-align: center;"></p>
           </div>
           <div class="bottom-section-loser">
             <button onclick="hideOverlayLoser()" class="okay-button-loser">Okay</button>
