@@ -5,7 +5,7 @@ var timeIndex = 0
 var timings = [1,2,5,10,15,30]
 var songName = "Bad Bunny - Solo de Mi"
 var songlink = 'https://open.spotify.com/track/4uP3pUP18ennmz0tb3GphR'
-var albumlink = 'https://i.scdn.co/image/https://open.spotify.com/track/4uP3pUP18ennmz0tb3GphR'
+var albumlink = 'https://i.scdn.co/image/ab67616d00001e022fbd77033247e889cb7d2ac4'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
