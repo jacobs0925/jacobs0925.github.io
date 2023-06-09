@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "Lana Del Rey - Summertime Sadness"
-var songlink = 'https://open.spotify.com/track/1Ist6PR2BZR3n2z2Y5R6S1'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b273f894be72a77b1488292672c7'
+var songName = "Flo Rida - My House"
+var songlink = 'https://open.spotify.com/track/6Knv6wdA0luoMUuuoYi2i1'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b2737947bf3e8af32378de181b41'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
