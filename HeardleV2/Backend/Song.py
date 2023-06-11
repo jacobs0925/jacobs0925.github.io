@@ -70,5 +70,5 @@ def getAlbumArtLinks(artist_name, song_name):
     else:
         print("Song not found.")
         
-print(getAlbumArtLinks('Beyoncé', 'Love On Top'))
-Song('https://youtu.be/Ob7vObnFUJc', 'test','test')
+print(getAlbumArtLinks('Drake', 'Wants and Needs (Feat. Lil Baby)'))
+Song('https://youtu.be/U6k5dIhB6AM', 'test','test')
