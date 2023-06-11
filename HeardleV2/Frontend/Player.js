@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "Rae Sremmurd - Swang"
-var songlink = 'https://open.spotify.com/track/6mapJIPnQ23RTAevUoE0DL'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b273881fb62d913fe712fc2e1c95'
+var songName = "Beyoncé - Love On Top"
+var songlink = 'https://open.spotify.com/track/1z6WtY7X4HQJvzxC4UgkSf'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b273ff5429125128b43572dbdccd'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
