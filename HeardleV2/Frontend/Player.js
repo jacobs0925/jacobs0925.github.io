@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "Drake - Wants and Needs (Feat. Lil Baby)"
-var songlink = 'https://open.spotify.com/track/65OVbaJR5O1RmwOQx0875b'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b2738b20e4631fa15d3953528bbc'
+var songName = "a-ha - Take on Me"
+var songlink = 'https://open.spotify.com/track/2WfaOiMkCvy7F5fcp2zZ8L'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b273e8dd4db47e7177c63b0b7d53'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
