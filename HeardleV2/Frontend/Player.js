@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "SZA - Love Galore"
-var songlink = 'https://open.spotify.com/track/0q75NwOoFiARAVp4EXU4Bs'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b2734c79d5ec52a6d0302f3add25'
+var songName = "Charli XCX - Boom Clap"
+var songlink = 'https://open.spotify.com/track/0Y1MWB026LYxGvhq4EcMiC'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b273b3f49d38597780046ad62b87'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
