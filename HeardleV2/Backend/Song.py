@@ -71,4 +71,4 @@ def getAlbumArtLinks(artist_name, song_name):
         print("Song not found.")
         
 print(getAlbumArtLinks('Steve Lacy', 'Dark Red'))
-Song('https://youtu.be/TlKK3xTjc1Y', 'test','test')
+Song('https://youtu.be/xRzbLQ_WKPs', 'test','test')
