@@ -70,5 +70,5 @@ def getAlbumArtLinks(artist_name, song_name):
     else:
         print("Song not found.")
         
-print(getAlbumArtLinks('Pitbull', 'Time of Our Lives'))
-Song('https://youtu.be/FUak2C_KEeU', 'test','test')
+print(getAlbumArtLinks('Adele', 'Rolling in the Deep'))
+Song('https://youtu.be/AIYpdjQVidc', 'test','test')
