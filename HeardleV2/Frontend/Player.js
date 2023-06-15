@@ -3,9 +3,9 @@ var countries = songs = ["The Weeknd - Blinding Lights","Ed Sheeran - Shape of Y
 //VARS
 var timeIndex = 0
 var timings = [1,2,5,10,15,30]
-var songName = "Adele - Rolling in the Deep"
-var songlink = 'https://open.spotify.com/track/1c8gk2PeTE04A1pIDH9YMk'
-var albumlink = 'https://i.scdn.co/image/ab67616d0000b2732118bf9b198b05a95ded6300'
+var songName = "Billie Eilish - ocean eyes"
+var songlink = 'https://open.spotify.com/track/7hDVYcQq6MxkdJGweuCtl9'
+var albumlink = 'https://i.scdn.co/image/ab67616d0000b273a9f6c04ba168640b48aa5795'
 
 var greenStr = 'rgb(6, 131, 6)'
 var redStr = 'rgb(146, 12, 12)'
