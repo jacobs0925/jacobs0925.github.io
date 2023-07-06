@@ -33,6 +33,7 @@ class Song:
             audio_file = audio_stream.download(filename="TempFile.mp3")
         except Exception as e:
             exception = str(e)
+            print("EXCEPTION", exception)
 
         return (audio_file, exception)
     
@@ -70,5 +71,5 @@ def getAlbumArtLinks(artist_name, song_name):
     else:
         print("Song not found.")
         
-print(getAlbumArtLinks('Billie Eilish', 'ocean eyes'))
-Song('https://youtu.be/HQitbbtPZz8', 'test','test')
+print(getAlbumArtLinks('ABBA', 'Gimme! Gimme! Gimme!'))
+Song('https://youtu.be/j8B87_z_2tc', 'test','test')
